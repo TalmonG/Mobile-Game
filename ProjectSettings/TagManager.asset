@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameMusic
   - BackgroundMusic
+  - Bullet
+  - Ball
   layers:
   - Default
   - TransparentFX

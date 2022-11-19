@@ -1,170 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float cash;
-    public float earnings;
-    public int multiplier;
-    
+    [Header("Ball")]
+    public GameObject ball;
 
-    public Text cashText;
-    public Text earningsText;
+    [Header("Player 1")]
+    //public GameObject player1Paddle;
+    public GameObject player1Goal;
 
-    public float cashConverter;
-    public float earningsConverter;
+    [Header("Player 2")]
+    //public GameObject player2Paddle;
+    public GameObject player2Goal;
 
-    public float earningsNewspaper;
-    public Text earningsNewspaperText;
+    [Header("Score UI")]
+    public GameObject Player1Text;
+    public GameObject Player2Text;
 
+    private int Player1Score;
+    private int Player2Score;
 
-    public void Increment()
+    public void Player1Scored()
     {
-        cash += multiplier;
-        PlayerPrefs.SetFloat("cash", cash);
+        Player1Score++;
+        Player1Text.GetComponent<TextMeshProUGUI>().text = Player1Score.ToString();
+        ResetPosition();
     }
 
-    public void Buy(int num)
+    public void Player2Scored()
     {
-        if (num == 1 && cash >= 4)
-        {
-            multiplier += 4;
-            cash -= 4;
-            PlayerPrefs.SetFloat("cash", cash);
-            PlayerPrefs.SetInt("multiplier", multiplier);
-            earningsNewspaper += 4;
-        }
-
-        if (num == 2 && cash >= 120)
-        {
-            multiplier += 120;
-            cash -= 120;
-            PlayerPrefs.SetFloat("cash", cash);
-            PlayerPrefs.SetInt("multiplier", multiplier);
-        }
-
-        if (num == 3 && cash >= 2880)
-        {
-            multiplier += 2880;
-            cash -= 2880;
-            PlayerPrefs.SetFloat("cash", cash);
-            PlayerPrefs.SetInt("multiplier", multiplier);
-        }
+        Player2Score++;
+        Player2Text.GetComponent<TextMeshProUGUI>().text = Player2Score.ToString();
+        ResetPosition();
     }
 
-    public void Start()
+    private void ResetPosition()
     {
-        multiplier = PlayerPrefs.GetInt("multiplier", 1);
-        cash = PlayerPrefs.GetFloat("cash", 0);
+        ball.GetComponent<Ball>().Reset();
+        /**player1Paddle.GetComponent<Paddle>().Reset();
+        player2Paddle.GetComponent<Paddle>().Reset();**/
     }
 
-    public void Update()
-    {
-
-        earnings = multiplier;
-
-
-
-
-
-        CashConverterFunction();
-
-        if (cash >= 1000)
-        {
-            cashText.text = "$ " + cashConverter.ToString("F2") + "K"; // Thousand
-        }
-        if (cash >= 10000)
-        {
-            cashText.text = "$ " + cashConverter.ToString("F2") + "K"; // Ten Thousand
-        }
-        if (cash >= 100000)
-        {
-            cashText.text = "$ " + cashConverter.ToString("F2") + "K"; // Hundred Thousand
-        }
-        if (cash >= 1000000)
-        {
-            cashText.text = "$ " + cashConverter.ToString("F2") + "M"; // Million
-        }
-        if (cash < 1000)
-        {
-            cashText.text = "$ " + cash;
-        }
-
-
-        EarningsConverterFunction();
-
-        if (earnings >= 1000)
-        {
-            earningsText.text = "$ " + earningsConverter.ToString("F2") + "K"; // Thousand
-        }
-        if (earnings >= 10000)
-        {
-            earningsText.text = "$ " + earningsConverter.ToString("F2") + "K"; // Ten Thousand
-        }
-        if (earnings >= 100000)
-        {
-            earningsText.text = "$ " + earningsConverter.ToString("F2") + "K"; // Hundred Thousand
-        }
-        if (earnings >= 1000000)
-        {
-            earningsText.text = "$ " + earningsConverter.ToString("F2") + "M"; // Million
-        }
-        if (earnings < 1000)
-        {
-            earningsText.text = "$ " + earnings;
-        }
-
-    }
-
-    public void CashConverterFunction()
-    {
-        if (cash >= 1000)
-        {
-            cashConverter = cash / 1000;
-        }
-        if (cash >= 10000)
-        {
-            cashConverter = cash / 1000;
-        }
-        if (cash >= 100000)
-        {
-            cashConverter = cash / 1000;
-        }
-        if (cash >= 1000000)
-        {
-            cashConverter = cash / 100000;
-        }
-    }
-
-
-    public void EarningsConverterFunction()
-    {
-        if (earnings >= 1000)
-        {
-            earningsConverter = earnings / 1000;
-        }
-        if (earnings >= 10000)
-        {
-            earningsConverter = earnings / 1000;
-        }
-        if (earnings >= 100000)
-        {
-            earningsConverter = earnings / 1000;
-        }
-        if (earnings >= 1000000)
-        {
-            earningsConverter = earnings / 100000;
-        }
-    }
-
-
-
-
-    public void ResetData()
-    {
-        PlayerPrefs.DeleteAll();
-        Debug.Log("Data has been erased!");
-    }
 }

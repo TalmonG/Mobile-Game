@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Ball : MonoBehaviour
 {
+
+    private PhotonView PV;
 
     public float speed;
     public Rigidbody2D rb;
@@ -12,6 +15,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PV = GetComponent<PhotonView>();
         startPosition = transform.position;
         Launch();
     }
@@ -19,7 +23,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     public void Reset()

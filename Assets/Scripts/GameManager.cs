@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Ball")]
-    public GameObject ball;
+    public GameObject[] ball;
+    public GameObject[] ballClone;
 
     [Header("Player 1")]
     //public GameObject player1Paddle;
@@ -39,7 +40,9 @@ public class GameManager : MonoBehaviour
 
     private void ResetPosition()
     {
-        ball.GetComponent<Ball>().Reset();
+        //ball.GetComponent<Ball>().Reset();
+        //Destroy(gameObject);
+        //Instantiate(ball, new Vector2(0, 0));
         /**player1Paddle.GetComponent<Paddle>().Reset();
         player2Paddle.GetComponent<Paddle>().Reset();**/
     }

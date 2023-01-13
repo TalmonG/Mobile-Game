@@ -14,9 +14,14 @@ public class WaitingRoom : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-         if(PhotonNetwork.CurrentRoom.PlayerCount == 2)
+         /**if(PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
             Debug.Log("BILLYYY");
-        }
+        }**/
+    }
+
+    public override void OnConnectToMaster()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 }

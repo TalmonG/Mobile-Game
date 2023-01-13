@@ -24,4 +24,14 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("WaitingRoom");
     }
 
+    private void STartGame()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Starting Game");
+            PhotonNetwork.LoadLevel();
+        }
+    }
+
 }
+ 

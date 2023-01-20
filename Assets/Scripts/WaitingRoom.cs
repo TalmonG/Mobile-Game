@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class WaitingRoom : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
+    /* Start is called before the first frame update
     void Start()
     {
         
@@ -17,11 +17,7 @@ public class WaitingRoom : MonoBehaviourPunCallbacks
          /**if(PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
             Debug.Log("BILLYYY");
-        }**/
-    }
-
-    public override void OnConnectToMaster()
-    {
-        PhotonNetwork.AutomaticallySyncScene = true;
-    }
+        }
+    }*/
+    
 }

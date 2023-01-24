@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         Player1Score++;
         Player1Text.GetComponent<TextMeshProUGUI>().text = Player1Score.ToString();
         ResetPosition();
+        PhotonNetwork.Instantiate ("Ball", ballSpawner.transform.position, ballSpawner.transform.rotation, 0);
+        Debug.Log("1");
+
     }
 
     public void Player2Scored()
@@ -45,6 +48,8 @@ public class GameManager : MonoBehaviour
         Player2Score++;
         Player2Text.GetComponent<TextMeshProUGUI>().text = Player2Score.ToString();
         ResetPosition();
+        PhotonNetwork.Instantiate ("Ball", ballSpawner.transform.position, ballSpawner.transform.rotation, 0);
+        Debug.Log("2");
     }
 
     private void ResetPosition()
@@ -52,7 +57,6 @@ public class GameManager : MonoBehaviour
         //GameObject.Find("Ball").GetComponent<Ball>().Reset();
         //ball.GetComponent<Ball>().Reset();
         Destroy(gameObject);
-        PhotonNetwork.Instantiate ("Ball", ballSpawner.transform.position, ballSpawner.transform.rotation, 0);
         //Instantiate("ball", new Vector2(0, 0));
         //player1Paddle.GetComponent<Paddle>().Reset();
         //player2Paddle.GetComponent<Paddle>().Reset();

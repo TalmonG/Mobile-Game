@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a0bbf2e8f3bb16047a201ac5b769e907
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: e47e71122a8cd3b41ba60e499bad4e88
   - enabled: 1
@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultiplayerGame.unity
     guid: 9a941c92a5886f342856c623e086aea4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WaitingRoom.unity
     guid: 734f05d6e56625042ae53cd9d19447d9
-  - enabled: 0
-    path: Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/SlotCar-Scene.unity
-    guid: 711b38c07f2cf904f81b3422c67f1825
+  - enabled: 1
+    path: Assets/Scenes/DelayStartMenu.unity
+    guid: f13bc65bae69f894ea7e001a0024a9ad
   m_configObjects: {}

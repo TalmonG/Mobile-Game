@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6657795}
+  - component: {fileID: 6657796}
   m_Layer: 0
   m_Name: DelayStartLobbyController
   m_TagString: Untagged
@@ -153,6 +154,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6657796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034658f84b0b99c48beb60b4a0d8e95b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayStartButton: {fileID: 1500515856}
+  delayCancelButton: {fileID: 99219084}
+  RoomSize: 2
 --- !u!1 &34773133
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,9 +388,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuickStartLobbyController, Assembly-CSharp
-        m_MethodName: QuickCancel
+      - m_Target: {fileID: 6657796}
+        m_TargetAssemblyTypeName: DelayStartLobbyController, Assembly-CSharp
+        m_MethodName: DelayCancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -739,6 +755,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 645828208}
+  - component: {fileID: 645828209}
   m_Layer: 0
   m_Name: DelayStartRoomController
   m_TagString: Untagged
@@ -760,6 +777,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &645828209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645828207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fd565694cff6146a54174fabe548a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitingRoomSceneIndex: 4
 --- !u!1 &942637228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,9 +1176,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuickStartLobbyController, Assembly-CSharp
-        m_MethodName: QuickStart
+      - m_Target: {fileID: 6657796}
+        m_TargetAssemblyTypeName: DelayStartLobbyController, Assembly-CSharp
+        m_MethodName: DelayStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

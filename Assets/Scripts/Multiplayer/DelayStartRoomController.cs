@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 public class DelayStartRoomController : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    private int multiplayerSceneIndex;
+    private int waitingRoomSceneIndex;
 
     public override void OnEnable()
     {
@@ -20,16 +21,8 @@ public class DelayStartRoomController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined Room");
-        StartGame();
+        SceneManager.LoadScene (waitingRoomSceneIndex);
     }
 
-    private void StartGame()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("Starting Game");
-            PhotonNetwork.LoadLevel(multiplayerSceneIndex);
-        }
-    }
+    
 }

@@ -8,23 +8,28 @@ public class SceneLoader : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Loading()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Loading");
     }
 
     public void Lobby()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Lobby");
     }
 
     public void MultiplayerGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("MultiplayerGame");
     }
 
-    
+    public void DelayStartWaitingRoom()
+    {
+        SceneManager.LoadScene("DelayStartWaitingRoom");
+    }
+
+
 }

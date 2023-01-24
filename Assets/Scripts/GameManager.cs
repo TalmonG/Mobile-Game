@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject ballSpawner;
+
     [Header("Ball")]
     public GameObject[] ball;
     public GameObject[] ballClone;
@@ -24,6 +28,11 @@ public class GameManager : MonoBehaviour
     private int Player1Score;
     private int Player2Score;
 
+    public void Start()
+    {
+        ballSpawner = GameObject.Find ("BallSpawner");
+    }
+
     public void Player1Scored()
     {
         Player1Score++;
@@ -40,11 +49,13 @@ public class GameManager : MonoBehaviour
 
     private void ResetPosition()
     {
+        //GameObject.Find("Ball").GetComponent<Ball>().Reset();
         //ball.GetComponent<Ball>().Reset();
-        //Destroy(gameObject);
-        //Instantiate(ball, new Vector2(0, 0));
-        /**player1Paddle.GetComponent<Paddle>().Reset();
-        player2Paddle.GetComponent<Paddle>().Reset();**/
+        Destroy(gameObject);
+        PhotonNetwork.Instantiate ("Ball", ballSpawner.transform.position, ballSpawner.transform.rotation, 0);
+        //Instantiate("ball", new Vector2(0, 0));
+        //player1Paddle.GetComponent<Paddle>().Reset();
+        //player2Paddle.GetComponent<Paddle>().Reset();
     }
 
 }

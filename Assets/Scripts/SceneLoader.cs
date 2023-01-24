@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviourPunCallbacks
 {
-    public void MainMenu()
+    public void DelayStartMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("DelayStartMenu");
     }
 
     public void Loading()
@@ -31,5 +33,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("DelayStartWaitingRoom");
     }
 
-
+    public void LeaveGame()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 }
